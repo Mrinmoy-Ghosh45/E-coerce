@@ -8,7 +8,7 @@ export default function HomePageWrapper() {
   return (
     <>
       <div className='bg-primary text-center text-white py-3'>
-        <h2>E-Sell</h2>
+        <h2>E-Sel</h2>
         <div style={{ paddingLeft: "480px" }}>
           <Checkbox searchTerm={searchTerm} setSearchTerm={setSearchTerm}  />
         </div>

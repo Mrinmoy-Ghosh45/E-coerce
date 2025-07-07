@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react'; 
 import Checkbox from './checkbox';
-import { useState } from 'react';
 import Homepage from './homepage';
 import { Link } from 'react-router-dom';
 
-export default function HomePageWrapper({ user }) { 
+export default function HomePageWrapper({ user, orders, setOrders }) {  
   const [searchTerm, setSearchTerm] = useState('');
 
   const displayName = user?.name || 'Guest'; 
@@ -25,7 +24,7 @@ export default function HomePageWrapper({ user }) {
             data-bs-toggle="dropdown"
             aria-expanded="false"
           >
-            Hello, {displayName} {/* ✅ dynamic name */}
+            Hello, {displayName} 
           </button>
 
           <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
@@ -52,7 +51,11 @@ export default function HomePageWrapper({ user }) {
       </div>
 
       <div className='pt-2 ps-2'>
-        <Homepage searchTerm={searchTerm} />
+        <Homepage 
+          searchTerm={searchTerm} 
+          setOrders={setOrders}     
+          orders={orders}           
+        /> 
       </div>
     </>
   );

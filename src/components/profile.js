@@ -1,4 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import { auth } from './firebase'; 
+
+
+import { RecaptchaVerifier, signInWithPhoneNumber } from 'firebase/auth';
 
 export default function Profile({ user, setUser }) {
   const [editing, setEditing] = useState(false);
@@ -11,6 +15,11 @@ export default function Profile({ user, setUser }) {
   const [pincode, setPincode] = useState('');
   const [country, setCountry] = useState('');
   const [profilePic, setProfilePic] = useState('');
+
+  const [otpSent, setOtpSent] = useState(false);
+  const [otp, setOtp] = useState('');
+  const [confirmResult, setConfirmResult] = useState(null);
+  const recaptchaRef = useRef(null);
 
   useEffect(() => {
     if (user) {
@@ -70,18 +79,53 @@ export default function Profile({ user, setUser }) {
     }
   };
 
+  const sendOtp = () => {
+    if (!phone) return alert("📱 Enter phone number first");
+
+    // Add +91 or country code if needed
+    const fullPhone = phone.startsWith('+') ? phone : '+91' + phone;
+
+    if (!recaptchaRef.current) {
+      recaptchaRef.current = new RecaptchaVerifier(auth, 'recaptcha-container', {
+        size: 'invisible',
+        callback: () => sendOtp()
+      });
+    }
+
+    signInWithPhoneNumber(auth, fullPhone, recaptchaRef.current)
+      .then((confirmationResult) => {
+        setConfirmResult(confirmationResult);
+        setOtpSent(true);
+        alert("✅ OTP sent to your phone.");
+      })
+      .catch((error) => {
+        console.error(error);
+        alert("❌ Failed to send OTP. Try again.");
+      });
+  };
+
+  const verifyOtp = () => {
+    if (!otp || !confirmResult) return alert("Enter OTP");
+
+    confirmResult.confirm(otp)
+      .then(() => {
+        alert("✅ Phone number verified!");
+      })
+      .catch((err) => {
+        console.error(err);
+        alert("❌ Incorrect OTP");
+      });
+  };
+
   return (
     <div className="container mt-5">
-      <div
-        className="card shadow-lg p-4"
-        style={{
-          maxWidth: '700px',
-          margin: '0 auto',
-          borderRadius: '16px',
-          background: 'linear-gradient(to right, #e0eafc, #cfdef3)',
-          color: '#333'
-        }}
-      >
+      <div className="card shadow-lg p-4" style={{
+        maxWidth: '700px',
+        margin: '0 auto',
+        borderRadius: '16px',
+        background: 'linear-gradient(to right, #e0eafc, #cfdef3)',
+        color: '#333'
+      }}>
         <div className="text-center mb-4">
           <h3 className="fw-bold text-primary">👤 My Profile</h3>
         </div>
@@ -110,6 +154,7 @@ export default function Profile({ user, setUser }) {
         {editing ? (
           <>
             <div className="row">
+              {/* Input Fields */}
               <div className="col-md-6 mb-3">
                 <label className="form-label fw-semibold">👤 Full Name</label>
                 <input className="form-control" value={name} onChange={(e) => setName(e.target.value)} />
@@ -122,8 +167,19 @@ export default function Profile({ user, setUser }) {
 
               <div className="col-md-6 mb-3">
                 <label className="form-label fw-semibold">📱 Phone</label>
-                <input className="form-control" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                <div className="input-group">
+                  <input className="form-control" type="tel" value={phone} onChange={(e) => setPhone(e.target.value)} />
+                  <button type="button" className="btn btn-outline-primary" onClick={sendOtp}>Send OTP</button>
+                </div>
               </div>
+
+              {otpSent && (
+                <div className="col-md-6 mb-3">
+                  <label className="form-label fw-semibold">🔑 Enter OTP</label>
+                  <input className="form-control" type="text" value={otp} onChange={(e) => setOtp(e.target.value)} />
+                  <button className="btn btn-outline-success mt-2" onClick={verifyOtp}>Verify OTP</button>
+                </div>
+              )}
 
               <div className="col-md-6 mb-3">
                 <label className="form-label fw-semibold">🎂 Date of Birth</label>
@@ -174,6 +230,7 @@ export default function Profile({ user, setUser }) {
             <button className="btn btn-primary w-100 mt-3" onClick={() => setEditing(true)}>✏️ Edit Profile</button>
           </>
         )}
+        <div id="recaptcha-container"></div>
       </div>
     </div>
   );

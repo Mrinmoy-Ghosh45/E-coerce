@@ -1,4 +1,5 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function Homepage({ searchTerm }) {
   const products = [
@@ -55,6 +56,18 @@ export default function Homepage({ searchTerm }) {
   // Convert search term to lowercase for comparison
   const search = searchTerm?.toLowerCase() || "";
 
+  const navigate = useNavigate();
+
+  const handleBuyNow = (item) => {
+    navigate("/productdetails", {
+      state: {
+        name:  item.name,
+        price: item.price,
+        image: item.image,
+      },
+    });
+  };
+
   return (
     <div>
       {products.map((section, index) => {
@@ -63,7 +76,7 @@ export default function Homepage({ searchTerm }) {
           section.category.toLowerCase().includes(search) ||
           section.subcategory.toLowerCase().includes(search)
         );
-
+           
         // Skip category if no match
         if (matchedItems.length === 0) return null;
 
@@ -74,7 +87,7 @@ export default function Homepage({ searchTerm }) {
 
             <div className="d-flex flex-wrap gap-3 p-3">
               {matchedItems.map((item, idx) => (
-                <div key={idx}>
+                <div key={idx} onClick={() => handleBuyNow(item)}> 
                   <div className="p-2">
                     <img
                       src={item.image}

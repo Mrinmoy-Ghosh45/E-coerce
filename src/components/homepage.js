@@ -1,7 +1,7 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-export default function Homepage({ searchTerm }) {
+export default function Homepage({ searchTerm, setOrders }) {
   const products = [
     {
       category: "fashion",
@@ -53,12 +53,17 @@ export default function Homepage({ searchTerm }) {
     },
   ];
 
-  // Convert search term to lowercase for comparison
   const search = searchTerm?.toLowerCase() || "";
+
+  
+  const handleBuyNow = (item) => {
+    setOrders((prev) => [...prev, { ...item, id: Date.now() }]);
+    alert("Added to My Orders!");
+  };
 
   const navigate = useNavigate();
 
-  const handleBuyNow = (item) => {
+  const BuyNow = (item) => {
     navigate("/productdetails", {
       state: {
         name:  item.name,
@@ -76,6 +81,7 @@ export default function Homepage({ searchTerm }) {
           section.category.toLowerCase().includes(search) ||
           section.subcategory.toLowerCase().includes(search)
         );
+
            
         // Skip category if no match
         if (matchedItems.length === 0) return null;
@@ -97,6 +103,16 @@ export default function Homepage({ searchTerm }) {
                   </div>
                   <div className="ps-3"><h6>{item.name}</h6></div>
                   <div className="ps-3"><h6>price - ${item.price}</h6></div>
+                  
+                  
+                  <div className="ps-3">
+                    <button
+                      className="btn btn-warning mt-1"
+                      onClick={() => handleBuyNow(item)}
+                    >
+                      Buy Now
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>

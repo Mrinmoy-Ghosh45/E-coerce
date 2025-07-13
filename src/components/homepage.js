@@ -76,6 +76,18 @@ export default function Homepage({ searchTerm }) {
 
 
 
+  const navigate = useNavigate();
+
+  const BuyNow = (item) => {
+    navigate("/productdetails", {
+      state: {
+        name:  item.name,
+        price: item.price,
+        image: item.image,
+      },
+    });
+  };
+
   return (
 
     <>

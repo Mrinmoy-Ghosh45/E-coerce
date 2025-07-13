@@ -21,7 +21,7 @@ export default function Login({ setUser }) {
       <h3 className="text-center">Login</h3>
       <form onSubmit={handleLogin} className="w-50 mx-auto border p-4 rounded shadow">
         <div className="mb-3">
-          <label className="form-label">Username</label>
+          <label className="form-label">User name</label>
           <input
             type="text"
             className="form-control"

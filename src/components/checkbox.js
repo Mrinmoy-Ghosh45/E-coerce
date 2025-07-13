@@ -7,13 +7,13 @@ export default function Checkbox({ searchTerm, setSearchTerm }) {
   return (
     <div style={{
       display: 'flex',
-      gap: '5px',
+      gap: '10px',
       backgroundColor: "white",
       width: '550px',
       padding: '8px',
       borderRadius: '8px',
     }}>
-      <i className="fa-solid fa-magnifying-glass" style={{ color: 'black' }}></i>
+      <div className="pt-1"><i className="fa-solid fa-magnifying-glass" style={{ color: 'black' }}></i></div>
 
       <input
         list="product-options"

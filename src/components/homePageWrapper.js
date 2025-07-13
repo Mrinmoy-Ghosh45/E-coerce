@@ -1,62 +1,44 @@
 import React, { useState } from 'react'; 
 import Checkbox from './checkbox';
 import Homepage from './homepage';
-import { Link } from 'react-router-dom';
+import Navigate from './Navigate';
 
-export default function HomePageWrapper({ user, orders, setOrders }) {  
+export default function HomePageWrapper() {  
   const [searchTerm, setSearchTerm] = useState('');
-
-  const displayName = user?.name || 'Guest'; 
-
+  const title={
+  fontSize:'80px',
+  color:'#8E44AD',
+  fontFamily:"impact",
+  marginLeft:'190px'
+}
   return (
     <>
-      <div className='bg-primary text-center text-white py-3 position-relative'>
-        <h2>E-Sel</h2>
-
-        <div
-          className="dropdown"
-          style={{ position: 'absolute', top: '15px', right: '20px' }}
-        >
-          <button
-            className="btn btn-light btn-sm dropdown-toggle"
-            type="button"
-            id="dropdownMenuButton"
-            data-bs-toggle="dropdown"
-            aria-expanded="false"
-          >
-            Hello, {displayName} 
-          </button>
-
-          <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
-            <li>
-              <Link to="/profile" className="dropdown-item">
-                My Profile
-              </Link>
-            </li>
-            <li>
-              <Link to="/orders" className="dropdown-item">
-                My Orders
-              </Link>
-            </li>
-            <li><hr className="dropdown-divider" /></li>
-            <li>
-              <button className="dropdown-item">Logout</button>
-            </li>
-          </ul>
+    <div className='container'>
+      <div className='bg-primary text-white' style={{borderRadius:"30px"}}>
+        <div className='bg-white  d-flex text-black justify-content-center' style={{borderRadius:"30px", marginBottom:"20px", gap:"300px" }}>
+          <div  style={title}>Emart</div>
+          
+          <div className='pb-2'><img src="/images/shopping.jpg" alt="image" style={{width: "600px", height: "150px", borderRadius: "20px"}}/>  </div>
         </div>
-
-        <div style={{ paddingLeft: "480px" }}>
-          <Checkbox searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+        
+        <div className='d-flex' >
+        <div style={{ paddingLeft: "420px", marginBottom:"20px" }}>
+          <Checkbox searchTerm={searchTerm} setSearchTerm={setSearchTerm}  />
+        </div>
+        <Navigate/>
+        
         </div>
       </div>
 
       <div className='pt-2 ps-2'>
         <Homepage 
           searchTerm={searchTerm} 
-          setOrders={setOrders}     
-          orders={orders}           
+          // setOrders={setOrders}     
+          // orders={orders}           
         /> 
       </div>
+    </div>
+      
     </>
   );
 }

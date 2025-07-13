@@ -1,10 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react'; 
 import Checkbox from './checkbox';
-import { useState } from 'react';
 import Homepage from './homepage';
 import Navigate from './Navigate';
 
-export default function HomePageWrapper() {
+export default function HomePageWrapper() {  
   const [searchTerm, setSearchTerm] = useState('');
   const title={
   fontSize:'80px',
@@ -30,8 +29,13 @@ export default function HomePageWrapper() {
         
         </div>
       </div>
+
       <div className='pt-2 ps-2'>
-        <Homepage searchTerm={searchTerm} />
+        <Homepage 
+          searchTerm={searchTerm} 
+          // setOrders={setOrders}     
+          // orders={orders}           
+        /> 
       </div>
     </div>
       

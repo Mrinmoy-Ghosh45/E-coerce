@@ -24,11 +24,23 @@ export default function Signin() {
       <form onSubmit={handleLogin} className="w-50 mx-auto border p-4 rounded shadow">
         <div className="mb-3">
           <label className="form-label">Username</label>
-          <input type="text" className="form-control" value={username} onChange={(e) => setUsername(e.target.value)} required />
+          <input
+            type="text"
+            className="form-control"
+            value={username}
+            onChange={(e) => setUsername(e.target.value)}
+            required
+          />
         </div>
         <div className="mb-3">
           <label className="form-label">Password</label>
-          <input type="password" className="form-control" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <input
+            type="password"
+            className="form-control"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
         </div>
         <button type="submit" className="btn btn-primary w-100">Signin</button>
       </form>

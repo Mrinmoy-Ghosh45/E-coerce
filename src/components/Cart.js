@@ -17,7 +17,7 @@ const [product,setProduct]=useState(
 ]
 )
 
-const handelRemove =(removeIndex)=>{
+const HandelRemove =(removeIndex)=>{
     const updateList = product.filter((_,index)=> index!==removeIndex);
     setProduct(updateList)
 }
@@ -52,7 +52,7 @@ const handelRemove =(removeIndex)=>{
                     <div style={{textDecoration:'line-through'}}>{item.prePrice} </div> 
                     {item.price} INR 
                     <div className="pt-2 d-flex gap-3 ">
-                        <button style={{borderRadius:'50px'}} className="bg-success text-white p-2 " onClick={()=>handelRemove(index)}>remove</button>
+                        <button style={{borderRadius:'50px'}} className="bg-success text-white p-2 " onClick={()=>HandelRemove(index)}>remove</button>
                         <button style={{borderRadius:'20px'}} className="bg-warning text-black p-2">buy now</button>
                     </div>
                 </div>

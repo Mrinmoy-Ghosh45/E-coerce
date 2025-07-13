@@ -6,7 +6,7 @@ export default function Homepage({ searchTerm }) {
 
   const Navigate = useNavigate();
 
-  const topProduct = [
+  const tProduct = [
     {
       category: 'Top-products',
       item: [
@@ -76,11 +76,23 @@ export default function Homepage({ searchTerm }) {
 
 
 
+  const navigate = useNavigate();
+
+  const BuyNow = (item) => {
+    navigate("/productdetails", {
+      state: {
+        name:  item.name,
+        price: item.price,
+        image: item.image,
+      },
+    });
+  };
+
   return (
 
     <>
   <div>
-        {topProduct.map((section, index) => (
+        {tProduct.map((section, index) => (
           <div key={index} className="container mt-4">
             <h3 className="">{section.category.replace('-', ' ',)}:</h3>
 

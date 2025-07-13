@@ -1,7 +1,4 @@
 import React from "react";
-<<<<<<< HEAD
-import { useNavigate } from "react-router-dom";
-=======
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +19,6 @@ export default function Homepage({ searchTerm }) {
       ]
     }
   ]
->>>>>>> fa7b05b1bef91658e4273be556e23296efaec379
 
   const products = [
     {
@@ -94,26 +90,6 @@ export default function Homepage({ searchTerm }) {
 
   return (
 
-<<<<<<< HEAD
-           
-        // Skip category if no match
-        if (matchedItems.length === 0) return null;
-
-        return (
-          <div key={index} className="border border-dark border-3 rounded-3 mt-3" style={{ backgroundColor: "#e6e6fa" }}>
-            <h4 className="p-2">{section.category}:</h4>
-            <h4 className="ps-3">{section.subcategory}:</h4>
-
-            <div className="d-flex flex-wrap gap-3 p-3">
-              {matchedItems.map((item, idx) => (
-                <div key={idx} onClick={() => handleBuyNow(item)}> 
-                  <div className="p-2">
-                    <img
-                      src={item.image}
-                      alt={item.name}
-                      style={{ width: "200px", height: "200px", borderRadius: "20px" }}
-                    />
-=======
     <>
   <div>
         {tProduct.map((section, index) => (
@@ -135,7 +111,6 @@ export default function Homepage({ searchTerm }) {
                         style={{ width: "700px", height: "350px", borderRadius: "20px" }}
                       />
                     </div>
->>>>>>> fa7b05b1bef91658e4273be556e23296efaec379
                   </div>
                 ))}
               </div>

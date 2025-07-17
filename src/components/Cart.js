@@ -26,17 +26,19 @@ const handelRemove =(removeIndex)=>{
 
         <div className="container">
 
-           <div className="d-flex justify-content-center p-3" style={{gap:'600px '}}>
-             <div><h4 onClick={()=>Navigate('/')} style={{textDecoration:'underline'}}>home</h4></div>
-              <div><h4 style={{textDecoration:'underline'}}>cart</h4></div>
+           <div className="row p-3">
+             <div className="col-1"><h4 style={{cursor:"pointer",}}  onClick={()=>Navigate('/')}><i className="fas fa-home"></i></h4></div>
+             <div className="col-9"></div>
+              <div onClick={()=>{console.log('hello i am buy now all')}} className="col-2 btn btn-success ">Buy Now All</div>
            </div>
 
         {product.map((item,index)=>(
             <div style={{boxShadow:'4px 4px 10px rgba(0,0,0,0.2)', borderRadius:'20px'}} >
                 
-                <div className="d-flex mt-2">
+                <div className="row">
+                  <div className=" col-11 d-flex mt-2">
                     <div key={index} className="p-4">
-                    <img src={item.image} alt="image" style={{ width: "150px", height: "150px", }}/>
+                    <img  src={item.image} alt="image" style={{ width: "150px", height: "150px",cursor:"pointer" }}/>
                 </div> 
                 <div className="p-4">
                     <h3>NIKE sneakers for men</h3>
@@ -52,12 +54,14 @@ const handelRemove =(removeIndex)=>{
                     <div style={{textDecoration:'line-through'}}>{item.prePrice} </div> 
                     {item.price} INR 
                     <div className="pt-2 d-flex gap-3 ">
-                        <button style={{borderRadius:'50px'}} className="bg-success text-white p-2 " onClick={()=>handelRemove(index)}>remove</button>
-                        <button style={{borderRadius:'20px'}} className="bg-warning text-black p-2">buy now</button>
+                        <div onClick={()=>{console.log('hello i am buy now button')}} className="btn btn-success ">Buy Now</div>
                     </div>
                 </div>
                 </div>
 
+                <div  onClick={()=>handelRemove(index)}  className="col-1" style={{paddingLeft:'60px', paddingTop:'10px',cursor:"pointer"}}><i className="fas fa-trash"></i></div>
+
+                </div>
             </div>
         ))}
 

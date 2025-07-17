@@ -16,10 +16,11 @@ export default function TopProduct(){
     return(
         <div className="container">
 
-            <div className="d-flex justify-content-center p-3" style={{gap:'800px '}}>
-             <div><h4 onClick={()=>Navigate('/')} style={{textDecoration:'underline'}}>home</h4></div>
-              <div><h4 style={{textDecoration:'underline'}}>topProducts</h4></div>
-           </div>            
+            <div className="row p-3">
+             <div className="col-1"><h4 style={{cursor:"pointer",}} onClick={()=>Navigate('/')}><i className="fas fa-home"></i></h4></div>
+             
+           </div>
+
 
               <div className="row">
                 {topProduct?.map((item ,idx)=>(
@@ -29,7 +30,7 @@ export default function TopProduct(){
                     <img className="image-card"
                       src={item.image}
                       alt={item.name}
-                      style={{ width: "300px", height: "300px", }}
+                      style={{ width: "300px", height: "300px",cursor:"pointer", }}
                     />
                   </div>
                   <div className="ps-3"><h6>{item.name}</h6></div>

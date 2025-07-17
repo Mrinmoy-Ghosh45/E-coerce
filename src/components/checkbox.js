@@ -31,7 +31,7 @@ export default function Checkbox({ searchTerm, setSearchTerm }) {
       />
       <datalist id="product-options">
         {options.map((item, index) => (
-          <option key={index} value={item} />
+          <options key={index} value={item} />
         ))}
       </datalist>
     </div>

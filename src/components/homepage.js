@@ -10,12 +10,12 @@ export default function Homepage({ searchTerm }) {
     {
       category: 'Top-products',
       item: [
-        { name: 'T-shirt', image: '/images/t.jpg', prePrice: '5000', price: '3000' },
-        { name: 'Bata', image: '/images/shoe.jpg', prePrice: '5000', price: '2000' },
-        { name: 'NIKE', image: '/images/shoe3.webp', prePrice: '5000', price: '2000' },
-        { name: 'adidas', image: '/images/image1.jpg', prePrice: '5000', price: '2000' },
-        { name: 'T-shirt', image: '/images/t2.jpg', prePrice: '5000', price: '2000' },
-        { name: 'T-shirt', image: '/images/t1.jpg', prePrice: '5000', price: '2000' },
+        { name: 'T-shirt', image: '/images/t.jpg', prePrice: "5000", price: "3000 INR" },
+        { name: 'Bata', image: '/images/shoe.jpg', prePrice: "5000", price: "2000 INR" }, 
+        { name: 'NIKE', image: '/images/shoe3.webp', prePrice: "5000", price: "2000 INR" },
+        { name: 'adidas', image: '/images/image1.jpg', prePrice: "5000", price: "2000 INR" },
+        { name: 'T-shirt', image: '/images/t2.jpg', prePrice: "5000", price: "2000 INR" },
+        { name: 'T-shirt', image: '/images/t1.jpg', prePrice: "5000", price: "2000 INR" },
       ]
     }
   ]
@@ -25,19 +25,19 @@ export default function Homepage({ searchTerm }) {
       category: "fashion",
       subcategory: "shoe",
       items: [
-        { name: "bata", image: "/images/shoe.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "bata", image: "/images/image1.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "bata", image: "/images/shoe3.webp", orPrice: '5000', price: '2000 INR' },
-        { name: "bata", image: "/images/shoe2.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "bata", image: "/images/image1.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "bata", image: "/images/shoe2.jpg", orPrice: '5000', price: '2000 INR' },
+        { name: "bata", image: "/images/shoe.jpg", orPrice: "5000", price: "2000 INR" },
+        { name: "bata", image: "/images/image1.jpg", orPrice: "5000", price: "2000 INR"  },
+        { name: "bata", image: "/images/shoe3.webp", orPrice: "5000", price: "2000 INR"  },
+        { name: "bata", image: "/images/shoe2.jpg", orPrice: "5000", price: "2000 INR"  },
+        { name: "bata", image: "/images/image1.jpg", orPrice: "5000", price: "2000 INR"  },
+        { name: "bata", image: "/images/shoe2.jpg", orPrice: "5000", price: "2000 INR"  },
       ],
     },
     {
       category: "fashion",
       subcategory: "T-Shirt",
       items: [
-        { name: "bata", image: "/images/t.jpg", orPrice: '5000', price: '2000 INR' },
+        { name: "bata", image: "/images/t.jpg", orPrice: "5000", price: '2000 INR' },
         { name: "bata", image: "/images/t1.jpg", orPrice: '5000', price: '2000 INR' },
         { name: "bata", image: "/images/t2.jpg", orPrice: '5000', price: '2000 INR' },
         { name: "bata", image: "/images/t3.jpg", orPrice: '5000', price: '2000 INR' },
@@ -73,7 +73,17 @@ export default function Homepage({ searchTerm }) {
 
   const search = searchTerm?.toLowerCase() || "";
 
+  
 
+  const BuyNow = (item) => {
+    Navigate("/productdetails", {
+      state: {
+        name:  item.name,
+        price: item.price,
+        image: item.image,
+      },
+    });
+  };
 
 
   const navigate = useNavigate();
@@ -158,7 +168,7 @@ export default function Homepage({ searchTerm }) {
               <div className="d-flex flex-wrap gap-3 p-3">
                 {matchedItems.map((item, idx) => (
                   <div key={idx}>
-                    <div className="p-2 image-card">
+                    <div className="p-2 image-card" onClick={() => BuyNow(item)}>
                       <img
                         src={item.image}
                         alt={item.name}

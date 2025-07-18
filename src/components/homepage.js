@@ -84,7 +84,7 @@ export default function Homepage({ searchTerm }) {
           <div key={index} className="container mt-4">
             <h3 className="">{section.category.replace('-', ' ',)}:</h3>
 
-            <div id={`topProductCarousel${index}`} className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div id={`topProductCarousel${index}`} className="carousel slide" data-bs-ride="carousel" data-bs-interval="1000">
               <div className="carousel-inner">
                 {section.item.map((product, idx) => (
                   <div

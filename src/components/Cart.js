@@ -17,7 +17,7 @@ const [product,setProduct]=useState(
 ]
 )
 
-const handelRemove =(removeIndex)=>{
+const HandelRemove =(removeIndex)=>{
     const updateList = product.filter((_,index)=> index!==removeIndex);
     setProduct(updateList)
 }

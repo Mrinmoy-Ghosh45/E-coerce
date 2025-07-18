@@ -12,8 +12,10 @@ const ProductDetails = () => {
   };
 
   const handleAddToWishlist = () => {
-    setWishlist(true);
-    alert("Added to wishlist!");
+ 
+    setWishlist((prev) => !prev);
+    alert("added to wishlist");
+ 
   };
 
   const navigate = useNavigate();
@@ -42,6 +44,9 @@ const ProductDetails = () => {
                 {/* Heart Icon */}
                 <div
                   className="position-absolute bg-white"
+ 
+                  onClick={handleAddToWishlist}
+ 
                   style={{
                     top: "10px",
                     right: "10px",
@@ -55,16 +60,18 @@ const ProductDetails = () => {
                     boxShadow: "0px 4px 20px rgba(0, 0, 0, 0.5)",
                   }}
                 >
-                  <i className="fa-regular fa-heart " />
+ 
+                  <i
+                    className={
+                      wishlist ? "fa-solid fa-heart" : "fa-solid fa-heart"
+                    }
+                    style={wishlist ? { color: "#ea0606" } : {}}
+                  />
                 </div>
 
                 {/* Image */}
-                <img
-                  src={image}
-                  alt={name}
-                  className="w-100"
-                   
-                />
+                <img src={image} alt={name} className="w-100" />
+ 
               </div>
 
               {/* Buttons under the image */}
@@ -72,7 +79,9 @@ const ProductDetails = () => {
                 <button
                   className="btn btn-primary me-2"
                   style={{ width: "50%" }}
-                >
+ 
+                  onClick={handleAddToCart}
+ 
                   Add To Cart
                 </button>
                 <button
@@ -122,7 +131,9 @@ const ProductDetails = () => {
                 Corning Gorilla Glass 3.
               </p>
             </div>
-            
+ 
+
+ 
             <div className="mt-2">
               <h3>Product Description</h3>
               <div className="mt-5 d-flex align-items-start">
@@ -130,8 +141,9 @@ const ProductDetails = () => {
 
                 <p className="ms-3">
                   <span className="d-block fs-5 fw-semibold mb-1">
-                     
-                    Pixel Perfect Display 
+ 
+                    Pixel Perfect Display
+ 
                   </span>
                   With the 16.58 cm (6.53) FHD+ 1080p Full Screen Display with
                   394 PPI, you can watch your favourite characters come alive on
@@ -156,8 +168,9 @@ const ProductDetails = () => {
 
                 <p className="ms-3">
                   <span className="d-block fs-5 fw-semibold mb-1">
-                     
-                    Powerful Processor 
+ 
+                    Powerful Processor
+ 
                   </span>
                   Powered by the MediaTek Helio G80 Octa-core CPU and 6 GB of
                   RAM, the Poco M2 provides an optimised performance for all
@@ -169,7 +182,8 @@ const ProductDetails = () => {
 
                 <p className="ms-3">
                   <span className="d-block fs-5 fw-semibold mb-1">
-                     
+ 
+ 
                     Pixel Perfect Display A Phone That Doesn’t Quit on You
                   </span>
                   The Poco M2’s comes with 10 W fast charging and a massive 5000
@@ -183,7 +197,9 @@ const ProductDetails = () => {
 
                 <p className="ms-3">
                   <span className="d-block fs-5 fw-semibold mb-1">
-                    Memories to Last a Lifetime 
+ 
+                    Memories to Last a Lifetime
+ 
                   </span>
                   The Poco M2 lets you capture every special moment with its (13
                   MP + 8 MP + 5 MP + 2 MP) quad-camera setup. Also, with the 8
@@ -196,7 +212,9 @@ const ProductDetails = () => {
 
                 <p className="ms-3">
                   <span className="d-block fs-5 fw-semibold mb-1">
-                    Connectivity on All Fronts 
+ 
+                    Connectivity on All Fronts
+ 
                   </span>
                   The Poco M2 supports USB Type C, IR Blaster, and a headphone
                   jack, providing no dearth of connectivity options.

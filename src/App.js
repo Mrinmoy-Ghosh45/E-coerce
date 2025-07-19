@@ -3,10 +3,12 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import HomePageWrapper from './components/homePageWrapper';
-import Signup from './components/Singup';
-import Signin from './components/Signin';
+ 
 import Cart from './components/Cart';
 import TopProduct from './components/TopProduct';
+import BuyNowPage from './components/buyNowPage';
+import ProductDetails from './components/productDetails';
+
 
 
 export default function App() {
@@ -16,10 +18,11 @@ export default function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<HomePageWrapper />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path='/signin' element={<Signin/>}/>
+        
         <Route path='/cart' element={<Cart/>} />
         <Route path='/topproduct' element={<TopProduct/>}/>
+         <Route path="/buy-now" element={<BuyNowPage />} />
+        <Route path="/productdetails" element={<ProductDetails />} />
       </Routes>
     </BrowserRouter>
   );

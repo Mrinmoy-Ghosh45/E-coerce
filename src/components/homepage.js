@@ -31,6 +31,11 @@ export default function Homepage({ searchTerm }) {
         { name: "Bata", image: "/images/shoe2.jpg", orPrice: 5000, price: 2000},
         { name: "asian", image: "/images/image1.jpg", orPrice: 5000, price: 2000},
         { name: "gullan", image: "/images/shoe2.jpg", orPrice: 5000, price: 2000},
+        { name: "Bata", image: "/images/shoe.jpg", orPrice: 5000, price: 2000},
+        { name: "gullan", image: "/images/shoe2.jpg", orPrice: 5000, price: 2000},
+        { name: "Adidas", image: "/images/image1.jpg", orPrice: 5000, price: 2000},
+        { name: "Nike", image: "/images/shoe3.webp", orPrice: 5000, price: 2000},
+
       ],
     },
     {
@@ -43,6 +48,10 @@ export default function Homepage({ searchTerm }) {
         { name: "KAJARU", image: "/images/t3.jpg", orPrice: 5000, price: 2000},
         { name: "KAJARU", image: "/images/t1.jpg", orPrice: 5000, price: 2000},
         { name: "AUSE", image: "/images/t.jpg", orPrice: 5000, price: 2000},
+        { name: "KAJARU", image: "/images/t3.jpg", orPrice: 5000, price: 2000},
+        { name: "KAJARU", image: "/images/t1.jpg", orPrice: 5000, price: 2000},
+        { name: "AUSE", image: "/images/t.jpg", orPrice: 5000, price: 2000},
+        { name: "AUSK", image: "/images/t1.jpg", orPrice: 5000, price: 2000}
       ],
     },
     {
@@ -55,6 +64,10 @@ export default function Homepage({ searchTerm }) {
         { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
         { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
         { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Nokia", image: "/images/nokia.jpeg", orPrice: 5000, price: 2000},
+        { name: "Samsung", image: "/images/samsong.jpg", orPrice: 5000, price: 2000},
       ],
     },
     {
@@ -67,13 +80,27 @@ export default function Homepage({ searchTerm }) {
         { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
         { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
         { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Lanphone", image: "/images/lanphone.webp", orPrice: 5000, price: 2000},
+        { name: "Lanphone", image: "/images/lanphone.webp", orPrice: 5000, price: 2000},
+        { name: "Lanphone", image: "/images/lanphone.webp", orPrice: 5000, price: 2000},
+        { name: "Lanphone", image: "/images/lanphone.webp", orPrice: 5000, price: 2000},
       ],
     },
   ];
 
   const search = searchTerm?.toLowerCase() || "";
 
+  
 
+  const BuyNow = (item) => {
+    Navigate("/productdetails", {
+      state: {
+        name:  item.name,
+        price: item.price,
+        image: item.image,
+      },
+    });
+  };
 
 
   const navigate = useNavigate();
@@ -148,7 +175,7 @@ export default function Homepage({ searchTerm }) {
               <div className="d-flex flex-wrap gap-3 p-3">
                 {matchedItems.map((item, idx) => (
                   <div key={idx}>
-                    <div className="p-2 image-card">
+                    <div className="p-2 image-card" onClick={() => BuyNow(item)}>
                       <img
                         src={item.image}
                         alt={item.name}

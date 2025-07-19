@@ -11,7 +11,15 @@ export default function TopProduct(){
    if(!topProduct){
     return <div>no product found this time</div>
    }
-
+  const BuyNow = (item) => {
+    Navigate("/productdetails", {
+      state: {
+        name:  item.name,
+        price: item.price,
+        image: item.image,
+      },
+    });
+  };
 
     return(
         <div className="container">
@@ -23,10 +31,10 @@ export default function TopProduct(){
 
 
               <div className="row">
-                {topProduct?.map((item ,idx)=>(
+                {topProduct.map((item ,idx)=>(
                   <div className="col-4 product-card">
                 <div key={idx}>
-                  <div className="p-2  ">
+                  <div className="p-2" onClick={() => BuyNow(item)}>
                     <img className="image-card"
                       src={item.image}
                       alt={item.name}
@@ -35,7 +43,7 @@ export default function TopProduct(){
                   </div>
                   <div className="ps-3"><h6>{item.name}</h6></div>
                   <div className="ps-3" style={{textDecoration:'line-through'}}><h6>{item.prePrice} INR</h6></div>
-                  <div className="ps-3"><h6>price - {item.price}</h6></div>
+                  <div className="ps-3"><h6>Price - {item.price} INR</h6></div>
                 </div>
             </div>
                 ))}

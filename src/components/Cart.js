@@ -22,6 +22,7 @@ const HandelRemove =(removeIndex)=>{
     setProduct(updateList)
 }
 
+
     return(
 
         <div className="container">
@@ -29,7 +30,7 @@ const HandelRemove =(removeIndex)=>{
            <div className="row p-3">
              <div className="col-1"><h4 style={{cursor:"pointer",}}  onClick={()=>Navigate('/')}><i className="fas fa-home"></i></h4></div>
              <div className="col-9"></div>
-              <div onClick={()=>{console.log('hello i am buy now all')}} className="col-2 btn btn-success ">Buy Now All</div>
+              <div onClick={()=>{console.log(product)}} className="col-2 btn btn-success ">Buy Now All</div>
            </div>
 
         {product.map((item,index)=>(
@@ -54,12 +55,12 @@ const HandelRemove =(removeIndex)=>{
                     <div style={{textDecoration:'line-through'}}>{item.prePrice} </div> 
                     {item.price} INR 
                     <div className="pt-2 d-flex gap-3 ">
-                        <div onClick={()=>{console.log('hello i am buy now button')}} className="btn btn-success ">Buy Now</div>
+                        <div onClick={()=>{console.log(item)}} className="btn btn-success ">Buy Now</div>
                     </div>
                 </div>
                 </div>
 
-                <div  onClick={()=>handelRemove(index)}  className="col-1" style={{paddingLeft:'60px', paddingTop:'10px',cursor:"pointer"}}><i className="fas fa-trash"></i></div>
+                <div  onClick={()=>HandelRemove(index)}  className="col-1" style={{paddingLeft:'60px', paddingTop:'10px',cursor:"pointer"}}><i className="fas fa-trash"></i></div>
 
                 </div>
             </div>

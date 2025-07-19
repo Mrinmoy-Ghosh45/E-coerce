@@ -10,63 +10,80 @@ export default function Homepage({ searchTerm }) {
     {
       category: 'Top-products',
       item: [
-        { name: 'T-shirt', image: '/images/t.jpg', prePrice: "5000", price: "3000 INR" },
-        { name: 'Bata', image: '/images/shoe.jpg', prePrice: "5000", price: "2000 INR" }, 
-        { name: 'NIKE', image: '/images/shoe3.webp', prePrice: "5000", price: "2000 INR" },
-        { name: 'adidas', image: '/images/image1.jpg', prePrice: "5000", price: "2000 INR" },
-        { name: 'T-shirt', image: '/images/t2.jpg', prePrice: "5000", price: "2000 INR" },
-        { name: 'T-shirt', image: '/images/t1.jpg', prePrice: "5000", price: "2000 INR" },
+        { name: 'T-shirt', image: '/images/t.jpg', prePrice: 5000, price: '3000' },
+        { name: 'Bata', image: '/images/shoe.jpg', prePrice: 5000, price: '2000' },
+        { name: 'NIKE', image: '/images/shoe3.webp', prePrice: 5000, price: '2000' },
+        { name: 'adidas', image: '/images/image1.jpg', prePrice: 5000, price: '2000' },
+        { name: 'T-shirt', image: '/images/t2.jpg', prePrice: 5000, price: '2000' },
+        { name: 'T-shirt', image: '/images/t1.jpg', prePrice: 5000, price: '2000' },
       ]
     }
   ]
 
   const products = [
     {
-      category: "fashion",
-      subcategory: "shoe",
+      category: "Fashion",
+      subcategory: "Shoe",
       items: [
-        { name: "bata", image: "/images/shoe.jpg", orPrice: "5000", price: "2000 INR" },
-        { name: "bata", image: "/images/image1.jpg", orPrice: "5000", price: "2000 INR"  },
-        { name: "bata", image: "/images/shoe3.webp", orPrice: "5000", price: "2000 INR"  },
-        { name: "bata", image: "/images/shoe2.jpg", orPrice: "5000", price: "2000 INR"  },
-        { name: "bata", image: "/images/image1.jpg", orPrice: "5000", price: "2000 INR"  },
-        { name: "bata", image: "/images/shoe2.jpg", orPrice: "5000", price: "2000 INR"  },
+        { name: "Nike", image: "/images/shoe.jpg", orPrice: 5000, price: 2000},
+        { name: "Adidas", image: "/images/image1.jpg", orPrice: 5000, price: 2000},
+        { name: "Nike", image: "/images/shoe3.webp", orPrice: 5000, price: 2000},
+        { name: "Bata", image: "/images/shoe2.jpg", orPrice: 5000, price: 2000},
+        { name: "asian", image: "/images/image1.jpg", orPrice: 5000, price: 2000},
+        { name: "gullan", image: "/images/shoe2.jpg", orPrice: 5000, price: 2000},
+        { name: "Bata", image: "/images/shoe.jpg", orPrice: 5000, price: 2000},
+        { name: "gullan", image: "/images/shoe2.jpg", orPrice: 5000, price: 2000},
+        { name: "Adidas", image: "/images/image1.jpg", orPrice: 5000, price: 2000},
+        { name: "Nike", image: "/images/shoe3.webp", orPrice: 5000, price: 2000},
+
       ],
     },
     {
-      category: "fashion",
+      category: "Fashion",
       subcategory: "T-Shirt",
       items: [
-        { name: "bata", image: "/images/t.jpg", orPrice: "5000", price: '2000 INR' },
-        { name: "bata", image: "/images/t1.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "bata", image: "/images/t2.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "bata", image: "/images/t3.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "bata", image: "/images/t1.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "bata", image: "/images/t.jpg", orPrice: '5000', price: '2000 INR' },
+        { name: "TRIPR", image: "/images/t.jpg", orPrice: 5000, price: 2000},
+        { name: "AUSK", image: "/images/t1.jpg", orPrice: 5000, price: 2000},
+        { name: "FTX", image: "/images/t2.jpg", orPrice: 5000, price: 2000},
+        { name: "KAJARU", image: "/images/t3.jpg", orPrice: 5000, price: 2000},
+        { name: "KAJARU", image: "/images/t1.jpg", orPrice: 5000, price: 2000},
+        { name: "AUSE", image: "/images/t.jpg", orPrice: 5000, price: 2000},
+        { name: "KAJARU", image: "/images/t3.jpg", orPrice: 5000, price: 2000},
+        { name: "KAJARU", image: "/images/t1.jpg", orPrice: 5000, price: 2000},
+        { name: "AUSE", image: "/images/t.jpg", orPrice: 5000, price: 2000},
+        { name: "AUSK", image: "/images/t1.jpg", orPrice: 5000, price: 2000}
       ],
     },
     {
-      category: "electronics",
-      subcategory: "smart phone",
+      category: "Electronics",
+      subcategory: "Smart phone",
       items: [
-        { name: "nokia", image: "/images/nokia.jpeg", orPrice: '5000', price: '2000 INR' },
-        { name: "samsung", image: "/images/samsong.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "lanphone", image: "/images/lanphone.webp", orPrice: '5000', price: '2000 INR' },
-        { name: "moto", image: "/images/moto.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "moto", image: "/images/moto.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "moto", image: "/images/moto.jpg", orPrice: '5000', price: '2000 INR' },
+        { name: "Nokia", image: "/images/nokia.jpeg", orPrice: 5000, price: 2000},
+        { name: "Samsung", image: "/images/samsong.jpg", orPrice: 5000, price: 2000},
+        { name: "Lanphone", image: "/images/lanphone.webp", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Nokia", image: "/images/nokia.jpeg", orPrice: 5000, price: 2000},
+        { name: "Samsung", image: "/images/samsong.jpg", orPrice: 5000, price: 2000},
       ],
     },
     {
-      category: "electronics",
-      subcategory: "old phone",
+      category: "Electronics",
+      subcategory: "Old phone",
       items: [
-        { name: "moto", image: "/images/moto.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "moto", image: "/images/moto.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "moto", image: "/images/moto.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "moto", image: "/images/moto.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "moto", image: "/images/moto.jpg", orPrice: '5000', price: '2000 INR' },
-        { name: "moto", image: "/images/moto.jpg", orPrice: '5000', price: '2000 INR' },
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Motorola", image: "/images/moto.jpg", orPrice: 5000, price: 2000},
+        { name: "Lanphone", image: "/images/lanphone.webp", orPrice: 5000, price: 2000},
+        { name: "Lanphone", image: "/images/lanphone.webp", orPrice: 5000, price: 2000},
+        { name: "Lanphone", image: "/images/lanphone.webp", orPrice: 5000, price: 2000},
+        { name: "Lanphone", image: "/images/lanphone.webp", orPrice: 5000, price: 2000},
       ],
     },
   ];
@@ -88,16 +105,6 @@ export default function Homepage({ searchTerm }) {
 
   const navigate = useNavigate();
 
-  const BuyNow = (item) => {
-    navigate("/productdetails", {
-      state: {
-        name:  item.name,
-        price: item.price,
-        image: item.image,
-      },
-    });
-  };
-
   return (
 
     <>
@@ -106,7 +113,7 @@ export default function Homepage({ searchTerm }) {
           <div key={index} className="container mt-4">
             <h3 className="">{section.category.replace('-', ' ',)}:</h3>
 
-            <div id={`topProductCarousel${index}`} className="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+            <div id={`topProductCarousel${index}`} className="carousel slide" data-bs-ride="carousel" data-bs-interval="1000">
               <div className="carousel-inner">
                 {section.item.map((product, idx) => (
                   <div
@@ -114,11 +121,11 @@ export default function Homepage({ searchTerm }) {
                     key={idx}
                   >
                     <div onClick={() => Navigate('/topproduct', { state: section.item })} key={idx} className="d-flex justify-content-center">
-                      <img
+                      <img 
                         src={product.image}
                         className="d-block"
                         alt={`Slide ${idx}`}
-                        style={{ width: "700px", height: "350px", borderRadius: "20px" }}
+                        style={{ width: "700px", height: "350px", borderRadius: "20px" ,cursor:"pointer"}}
                       />
                     </div>
                   </div>
@@ -172,12 +179,12 @@ export default function Homepage({ searchTerm }) {
                       <img
                         src={item.image}
                         alt={item.name}
-                        style={{ width: "200px", height: "200px", borderRadius: "20px" }}
+                        style={{ width: "200px", height: "200px", borderRadius: "20px" ,cursor:"pointer"}}
                       />
                     </div>
                     <div className="ps-3"><h6>{item.name}</h6></div>
                     <div className="ps-3" style={{ textDecoration: 'line-through' }}><h6>{item.orPrice} INR</h6></div>
-                    <div className="ps-3"><h6>price - {item.price}</h6></div>
+                    <div className="ps-3"><h6>Price - {item.price} INR</h6></div>
                   </div>
                 ))}
               </div>

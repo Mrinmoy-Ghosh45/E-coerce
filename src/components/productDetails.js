@@ -81,7 +81,7 @@ const ProductDetails = () => {
                   style={{ width: "50%" }}
  
                   onClick={handleAddToCart}
- 
+                >
                   Add To Cart
                 </button>
                 <button

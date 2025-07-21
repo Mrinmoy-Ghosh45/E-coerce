@@ -4,7 +4,6 @@ import Addtocart from "./Addtocart";
 
 const linkStyle = {
     cursor:"pointer",
-     textDecoration:'underline'
 }
 
 export default function Navigate(){
@@ -14,7 +13,7 @@ export default function Navigate(){
         <div style={{marginLeft:"135px"}}  >
             
 
-            <div onClick={()=>navigate('/cart')}><Addtocart/></div>
+            <div style={linkStyle} onClick={()=>navigate('/cart')}><Addtocart/></div>
         </div>
     )
 }

@@ -11,7 +11,7 @@ export default function Navigate(){
     const navigate = useNavigate();
 
     return(
-        <div style={{marginLeft:"135px"}}  >
+        <div style={{marginLeft:"135px"}}>
             
 
             <div onClick={()=>navigate('/cart')}><Addtocart/></div>

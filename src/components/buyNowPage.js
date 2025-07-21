@@ -15,8 +15,7 @@ const BuyNowPage = () => {
   const [cartProductArray, setCartProductArray] = useState([]);
 
   useEffect(() => {
-    console.log("useEffect running with state:", state);
-    if (state && typeof state === "object" && !Array.isArray(state)) {
+     if (state && typeof state === "object" && !Array.isArray(state)) {
       setImage(state.image);
       setName(state.name);
       setPrice(state.price);
@@ -125,7 +124,7 @@ const BuyNowPage = () => {
                       <input
                         type="number"
                         name="number"
-                        value={quantities[index] || 1}
+                        value={quantities[index]}
                         onChange={(e) => {
                           if (e.target.value === "") {
                             setQuantities((prev) => {

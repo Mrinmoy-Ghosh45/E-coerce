@@ -10,7 +10,7 @@ export default function Navigate(){
     const navigate = useNavigate();
 
     return(
-        <div style={{marginLeft:"135px"}}  >
+        <div style={{marginLeft:"135px"}}>
             
 
             <div style={linkStyle} onClick={()=>navigate('/cart')}><Addtocart/></div>

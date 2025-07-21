@@ -5,6 +5,8 @@ import { useLocation } from "react-router-dom";
 const ProductDetails = () => {
   const [cart, setCart] = useState(false);
   const [wishlist, setWishlist] = useState(false);
+  const [isHovering, setIsHovering] = useState(false);
+  const [hoverPosition, setHoverPosition] = useState({ x: 0, y: 0 });
 
   const handleAddToCart = () => {
     setCart(true);
@@ -30,15 +32,42 @@ const ProductDetails = () => {
     });
   };
 
+  const handleMouseEnter = () => {
+    setIsHovering(true);
+  };
+
+  const handleMouseMove = (e) => {
+    console.log(e);
+    const { top, left } = e.target.getBoundingClientRect();
+    const x = e.pageX - left;
+    const y = e.pageY - top;
+    setHoverPosition({ x, y });
+  };
+
+  const handleMouseLeave = () => {
+    setIsHovering(false);
+  };
+
   const { state } = useLocation();
   const { name, price, image } = state || {};
 
   return (
     <div className="cotainer-fluid">
-      <div className="container shadow-lg ">
+      <div
+        className="container shadow-lg "
+        style={{ maxHeight: "100vh", overflowY: "auto" }}
+      >
         <div className="row">
           <div className="col-5 d-flex justify-content-center">
-            <div className="mt-5" style={{ width: "400px" }}>
+            <div
+              className="mt-5"
+              style={{
+                width: "400px",
+                position: "sticky",
+                top: "30px",
+                alignSelf: "flex-start",
+              }}
+            >
               {/* Image Container */}
               <div className="position-relative">
                 {/* Heart Icon */}
@@ -69,9 +98,50 @@ const ProductDetails = () => {
                   />
                 </div>
 
-                {/* Image */}
-                <img src={image} alt={name} className="w-100" />
- 
+                {/* Normal Image */}
+                <img
+                  src={image}
+                  alt={name}
+                  className="w-100"
+                  onMouseEnter={handleMouseEnter}
+                  onMouseMove={handleMouseMove}
+                  onMouseLeave={handleMouseLeave}
+                  style={{ cursor: "zoom-in" }}
+                />
+
+                {/* Zoomed image */}
+                {isHovering && (
+                  <div
+                    style={{
+                      position: "absolute",
+                      top: 0,
+                      left: "420px",
+                      width: "calc(100vw - 400px)",
+                      height: "100vh",
+                      overflow: "hidden",
+                      border: "1px solid #ccc",
+                      boxShadow: "0 0 10px rgba(0,0,0,0.2)",
+                      zIndex: 100,
+                      backgroundColor: "white",
+                    }}
+                  >
+                    <img
+                      src={image}
+                      alt="zoom"
+                      style={{
+                        position: "absolute",
+                        top: `-${
+                          hoverPosition.y * 4 - window.innerHeight / 2
+                        }px`,
+                        left: `-${
+                          hoverPosition.x * 4 - (window.innerWidth - 420) / 2
+                        }px`,
+                        width: "1600px",
+                        height: "1600px",
+                      }}
+                    />
+                  </div>
+                )}
               </div>
 
               {/* Buttons under the image */}
